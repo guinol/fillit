@@ -57,9 +57,9 @@ static int ft_cntdiez(char **s)
 	
 	c = 0;
 	i = 0;
-	while(ft_strcmp(s[i], "\0") != 0)
+	d = 0;
+	while(s[i])
 	{
-		d = 0;
 		j = 0;
 		while (s[i][j])
 		{
@@ -67,10 +67,14 @@ static int ft_cntdiez(char **s)
 				d++;
 			j++;
 		}
-		if (i % 4 == 0 && d != 4)
+		if (c == 4 && d != 4)
 			return (0);
-		else
+		c++;
+		if (c == 4 && d == 4)
+		{
 			c = 0;
+			d = 0;
+		}
 		i++;
 	}
 	return (1);
@@ -93,8 +97,8 @@ static int ft_isvalid(char *s)
 		return (0);
 	if (!ft_isformat(s))
 		return (0);
-	//if (!ft_cntdiez(ft_strsplit(s, '\n')))
-	//	return (0);
+	if (!ft_cntdiez(ft_strsplit(s, '\n')))
+		return (0);
 	return (1);
 }
 
