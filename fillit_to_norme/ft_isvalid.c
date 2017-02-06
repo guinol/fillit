@@ -6,7 +6,7 @@
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 17:04:23 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/06 18:38:40 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/02/06 20:20:36 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_isvalid(char *s)
 
 	i = 0;
 	ft_putstr(s);
+	if ((int)ft_strlen(s) == 0)
+		return (0);
 	if (s[i] == '\n')
 		return (0);
 	while (s[i] == '\n' || s[i] == '#' || s[i] == '.')
