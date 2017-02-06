@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isformat.c                                      :+:      :+:    :+:   */
+/*   ft_isvalid.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 17:04:02 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/06 17:19:42 by lagirard         ###   ########.fr       */
+/*   Created: 2017/02/06 17:04:23 by lagirard          #+#    #+#             */
+/*   Updated: 2017/02/06 18:38:40 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isformat(char *s)
-{
-	int k;
-	int x;
+#include "libft.h"
+#include "fillit.h"
 
-	x = 0;
-	while (*s)
-	{
-		k = 0;
-		while (*s != '\n')
-		{
-			s++;
-			k++;
-		}
-		if (k != 4)
-			return (0);
-		x++;
-		if (*(s + 1) == '\0' || *(s + 1) == '\n')
-		{
-			if (x != 4)
-				return (0);
-			s++;
-			x = 0;
-		}
-		s++;
-	}
+int	ft_isvalid(char *s)
+{
+	int i;
+
+	i = 0;
+	ft_putstr(s);
+	if (s[i] == '\n')
+		return (0);
+	while (s[i] == '\n' || s[i] == '#' || s[i] == '.')
+		i++;
+	if (i != (int)ft_strlen(s))
+		return (0);
+	if (s[i - 1] == '\n' && s[i - 2] == '\n')
+		return (0);
+	if (!ft_isformat(s))
+		return (0);
+	if (!ft_cntdiez(s))
+		return (0);
+	if (!ft_istetro(s))
+		return (0);
 	return (1);
 }

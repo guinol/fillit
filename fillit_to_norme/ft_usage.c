@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_usage.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 09:46:18 by agarcia-          #+#    #+#             */
-/*   Updated: 2017/01/12 14:57:15 by agarcia-         ###   ########.fr       */
+/*   Created: 2017/02/06 16:25:32 by lagirard          #+#    #+#             */
+/*   Updated: 2017/02/06 18:38:29 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "fillit.h"
 
-void	ft_putchar(char c)
+int	ft_usage(void)
 {
-	write(1, &c, 1);
+	ft_putstr("usage : ./fillit file");
+	return (0);
 }

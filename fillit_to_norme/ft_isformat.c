@@ -1,24 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_isformat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/02 16:08:35 by agarcia-          #+#    #+#             */
-/*   Updated: 2017/01/16 15:09:57 by agarcia-         ###   ########.fr       */
+/*   Created: 2017/02/06 17:04:02 by lagirard          #+#    #+#             */
+/*   Updated: 2017/02/06 18:37:42 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "fillit.h"
 
-int	ft_strequ(char const *s1, char const *s2)
+int	ft_isformat(char *s)
 {
-	if (s1 && s2)
+	int k;
+	int x;
+
+	x = 0;
+	while (*s)
 	{
-		if (ft_strcmp((char*)s1, (char*)s2) != 0)
+		k = 0;
+		while (*s != '\n')
+		{
+			s++;
+			k++;
+		}
+		if (k != 4)
 			return (0);
-		return (1);
+		x++;
+		if (*(s + 1) == '\0' || *(s + 1) == '\n')
+		{
+			if (x != 4)
+				return (0);
+			s++;
+			x = 0;
+		}
+		s++;
 	}
-	return (0);
+	return (1);
 }

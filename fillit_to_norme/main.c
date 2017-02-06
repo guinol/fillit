@@ -6,29 +6,12 @@
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 16:11:31 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/06 17:19:15 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/02/06 18:39:29 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft/libft.h"
-#include <fcntl.h>
-#include "./libft/ft_putstr.c"
-#include "./libft/ft_strlen.c"
-#include "./libft/ft_strnew.c"
-#include "./libft/ft_bzero.c"
-#include "./libft/ft_memset.c"
-#include "./libft/ft_strdup.c"
-#include "./libft/ft_strsplit.c"
-#include "./libft/ft_memalloc.c"
-#include "./libft/ft_strsub.c"
-#include "./libft/ft_strncpy.c"
-#include "./libft/ft_strcmp.c"
-#include "./src/ft_cntdiez.c"
-#include "./src/ft_error.c"
-#include "./src/ft_usage.c"
-#include "./src/ft_istetro.c"
-#include "./src/ft_isformat.c"
-#include "./src/ft_isvalid.c"
+#include "libft.h"
+#include "fillit.h"
 
 int	main(int ac, char **av)
 {

@@ -1,19 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agarcia- <agarcia-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/20 11:10:08 by agarcia-          #+#    #+#             */
-/*   Updated: 2016/12/20 11:11:14 by agarcia-         ###   ########.fr       */
+/*   Created: 2017/02/06 16:11:31 by lagirard          #+#    #+#             */
+/*   Updated: 2017/02/06 18:39:01 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "fillit.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+int	ft_cntdiez(char *s)
 {
-	ft_putstr_fd((char*)s, fd);
-	ft_putchar_fd('\n', fd);
+	int i;
+	int c;
+	int d;
+
+	i = -1;
+	while (s[++i])
+	{
+		c = 0;
+		d = 0;
+		while (c < 20)
+		{
+			if (s[i] == '#')
+				d++;
+			if (c == 19 && d != 4)
+				return (0);
+			c++;
+			i++;
+		}
+	}
+	return (1);
 }

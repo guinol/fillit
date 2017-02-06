@@ -1,17 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_usage.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 16:25:32 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/06 16:36:24 by lagirard         ###   ########.fr       */
+/*   Created: 2017/02/06 16:11:31 by lagirard          #+#    #+#             */
+/*   Updated: 2017/02/06 18:38:11 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_usage(void)
+#include "libft.h"
+#include "fillit.h"
+
+int	ft_istetro(char *s)
 {
-	ft_putstr("usage : ./fillit file");
-	return (0);
+	int i;
+	int c;
+	int l;
+
+	i = -1;
+	while (s[++i])
+	{
+		c = 0;
+		l = 0;
+		while (c < 20)
+		{
+			if (s[i] == '#')
+			{
+				if (s[i + 1] == '#')
+					l++;
+				if (s[i + 5] == '#')
+					l++;
+			}
+			c++;
+			i++;
+		}
+		if (l < 3)
+			return (0);
+	}
+	return (1);
 }

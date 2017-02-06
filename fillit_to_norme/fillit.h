@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isvalid.c                                       :+:      :+:    :+:   */
+/*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 17:04:23 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/06 17:19:50 by lagirard         ###   ########.fr       */
+/*   Created: 2017/02/06 18:16:39 by lagirard          #+#    #+#             */
+/*   Updated: 2017/02/06 18:46:04 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isvalid(char *s)
-{
-	int i;
+#ifndef FILLIT_H
+# define FILLIT_H
 
-	i = 0;
-	ft_putstr(s);
-	if (s[i] == '\n')
-		return (0);
-	while (s[i] == '\n' || s[i] == '#' || s[i] == '.')
-		i++;
-	if (i != ft_strlen(s))
-		return (0);
-	if (s[i - 1] == '\n' && s[i - 2] == '\n')
-		return (0);
-	if (!ft_isformat(s))
-		return (0);
-	if (!ft_cntdiez(s))
-		return (0);
-	if (!ft_istetro(s))
-		return (0);
-	return (1);
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include "libft.h"
+
+int		ft_cntdiez(char *s);
+int		ft_error(void);
+int		ft_isformat(char *s);
+int		ft_istetro(char *s);
+int		ft_isvalid(char *s);
+int		ft_usage(void);
+
+#endif
