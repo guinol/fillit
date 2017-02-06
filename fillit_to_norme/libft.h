@@ -6,7 +6,7 @@
 /*   By: agarcia- <agarcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/24 07:37:59 by agarcia-          #+#    #+#             */
-/*   Updated: 2017/02/06 20:25:26 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/02/06 21:00:09 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# define BUFF_SIZE 40
+# define BUFF_SIZE 4000
 
 typedef struct	s_list
 {

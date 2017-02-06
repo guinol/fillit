@@ -6,7 +6,7 @@
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 16:11:31 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/06 19:54:47 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/02/06 21:32:43 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ int	main(int ac, char **av)
 	if ((read(fd, buff, BUFF_SIZE)) < 0)
 		return (ft_error());
 	close(fd);
+	if (ft_oknbtetra(buff) == 0)
+		return (ft_error());
 	if (ft_isvalid(buff))
-		ft_putstr("\nvalide\n");
+		ft_putstr("valide\n");
 	else
-		ft_putstr("\nNON VALIDE\n");
+		return (ft_error());
 	return (0);
 }

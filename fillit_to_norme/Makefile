@@ -6,14 +6,14 @@
 #    By: lagirard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/06 18:17:38 by lagirard          #+#    #+#              #
-#    Updated: 2017/02/06 19:20:10 by lagirard         ###   ########.fr        #
+#    Updated: 2017/02/06 21:00:02 by lagirard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
 FUNCTIONS = ft_cntdiez.c ft_error.c ft_isformat.c ft_istetro.c \
-			ft_isvalid.c ft_usage.c main.c
+			ft_isvalid.c ft_usage.c ft_oknbtetra.c main.c
 
 INCLUDE = fillit.h
 

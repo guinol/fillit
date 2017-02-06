@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_oknbtetra.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 16:11:31 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/06 20:58:02 by lagirard         ###   ########.fr       */
+/*   Created: 2017/02/06 21:00:40 by lagirard          #+#    #+#             */
+/*   Updated: 2017/02/06 21:26:52 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int	ft_cntdiez(char *s)
+int		ft_oknbtetra(char *s)
 {
-	int i;
-	int c;
-	int d;
+	int		n;
 
-	i = -1;
-	while (s[++i])
+	n = 1;
+	while (*(s + 1))
 	{
-		c = 0;
-		d = 0;
-		while (c < 20)
-		{
-			if (s[i] == '#')
-				d++;
-			if (c == 19 && d != 4)
-				return (0);
-			c++;
-			i++;
-		}
+		if (*s == '\n' && *(s + 1) == '\n')
+			n++;
+		if (n > 26)
+			return (0);
+		s++;
 	}
 	return (1);
 }
