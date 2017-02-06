@@ -6,33 +6,31 @@
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 16:11:31 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/06 21:44:27 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/02/06 21:53:33 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int	ft_cntdiez(char *s)
+void	ft_diezletters(char *s)
 {
-	int i;
-	int c;
-	int d;
+	int		i;
+	int		c;
+	char	letter;
 
 	i = -1;
+	letter = 'A';
 	while (s[++i])
 	{
 		c = 0;
-		d = 0;
 		while (c < 20)
 		{
 			if (s[i] == '#')
-				d++;
-			if (c == 19 && d != 4)
-				return (0);
+				s[i] = letter;
 			c++;
 			i++;
 		}
+		letter++;
 	}
-	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 18:16:39 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/06 21:00:30 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/02/06 21:50:57 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ int		ft_istetro(char *s);
 int		ft_isvalid(char *s);
 int		ft_usage(void);
 int		ft_oknbtetra(char *s);
+void	ft_diezletters(char *s);		
 
 #endif
