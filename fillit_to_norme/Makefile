@@ -6,7 +6,7 @@
 #    By: lagirard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/02/06 18:17:38 by lagirard          #+#    #+#              #
-#    Updated: 2017/02/06 19:13:16 by lagirard         ###   ########.fr        #
+#    Updated: 2017/02/06 19:20:10 by lagirard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,14 @@ FUNCTIONS = ft_cntdiez.c ft_error.c ft_isformat.c ft_istetro.c \
 
 INCLUDE = fillit.h
 
+FLAGS = -Wall -Wextra -Werror
+
 LIB = libft.a
 
 all : $(NAME)
 
 $(NAME) :
-		gcc -o $(NAME) -I $(INCLUDE) $(FUNCTIONS) $(LIB)
+		gcc $(FLAGS) -o $(NAME) -I $(INCLUDE) $(FUNCTIONS) $(LIB)
 
 clean :
 		rm -rf all
