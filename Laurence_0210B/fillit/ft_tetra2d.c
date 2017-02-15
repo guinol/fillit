@@ -6,7 +6,7 @@
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 16:15:20 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/10 17:45:15 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/02/15 16:42:32 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**ft_tetra2d(char *buff)
 	int		k;
 	int		t;
 
-	tetra = (char **)malloc(sizeof(char *) * 4);
+	tetra = (char **)malloc(sizeof(char *) * 5);
 	if (tetra == NULL)
 		return (NULL);
 	t = 0;
@@ -28,7 +28,7 @@ char	**ft_tetra2d(char *buff)
 	while (j < 4)
 	{
 		k = 0;
-		tetra[j] = (char *)malloc(sizeof(char) * 4);
+		tetra[j] = (char *)malloc(sizeof(char) * 5);
 		if (tetra[k] == NULL)
 			return (NULL);
 		while (k < 4)
@@ -39,9 +39,9 @@ char	**ft_tetra2d(char *buff)
 			t++;
 			k++;
 		}
-		//tetra[j][k + 1] = '\0';
+		tetra[j][k] = 0;
 		j++;
 	}
-	//tetra[j + 1][0] = '\0';
+	tetra[j] = 0;
 	return (tetra);
 }

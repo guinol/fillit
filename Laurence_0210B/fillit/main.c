@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lagirard <lagirard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 16:11:31 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/10 18:47:07 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/02/15 19:33:28 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 	int		fd;
 	char	*buff;
 	char	**tab;
-	int		j;
+	//int		j;
 	int		size_buff;
 	char	***table;
 
@@ -43,25 +43,33 @@ int	main(int ac, char **av)
 		ft_putstr("\nCmax = ");
 		ft_putnbr(ft_cmax(ft_nbtetra(buff)));
 		ft_putstr("\n");
-		tab = (char **)malloc(sizeof(char *) * (ft_nbtetra(buff) * 4));
+
+
+		//printf("nb tetro = %d\n", ft_nbtetra(buff));
+/*
+		tab = (char **)malloc(sizeof(char *) * (ft_nbtetra(buff) * 5));
 		if (tab == NULL)
 			return (0);
 		j = 0;
 		while (j < 4)
 		{
-			tab[j] = (char *)malloc(sizeof(char) * 4);
+			tab[j] = (char *)malloc(sizeof(char) * 5);
 			if (tab == NULL)
 				return (0);
 			j++;
 		}
+*/
 		tab = ft_buff2d(buff);
 		ft_putstr("\n");
 		tab = ft_totop(tab, ft_nbtetra(buff));
 		size_buff = ft_nbtetra(buff) * 4;
 		//ft_print2d(size_buff, 4, tab);
-		table = (char ***)malloc(sizeof(char**) * ft_nbtetra(buff));
+		//table = (char ***)malloc(sizeof(char**) * ft_nbtetra(buff));
 		table = ft_tetra3d(tab, ft_nbtetra(buff));
-		ft_print3d(size_buff, 4, table, ft_nbtetra(buff));
+		//table = ft_tetra3D(ft_buff2d(buff), ft_nbtetra(buff));
+		ft_print3d(4, 4, table, ft_nbtetra(buff));
+		//ft_aff3d(table, ft_nbtetra(buff));
+		//ft_putchar(table[0][0][3]);
 	}
 	else
 		return (ft_error());

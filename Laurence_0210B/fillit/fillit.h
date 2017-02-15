@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lagirard <lagirard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 18:16:39 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/10 18:18:03 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/02/15 18:46:39 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdio.h>
 # include "libft.h"
 
 int		ft_cntdiez(char *s);
@@ -34,6 +35,6 @@ char	**ft_totop(char **tab, int nbtetra);
 int		ft_linestotop(char **tab, int index_l);
 int		ft_columnstoleft(char **tab, int index_l);
 char	***ft_tetra3d(char **tab, int nbtetra);
-void	*ft_print3d(int dim_l, int dim_c, char ***tab, int nbtetra);
-
+void	ft_print3d(int dim_l, int dim_c, char ***tab, int nbtetra);
+void	ft_aff3d(char ***t, int n);
 #endif

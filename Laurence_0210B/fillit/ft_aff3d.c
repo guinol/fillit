@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print3d.c                                       :+:      :+:    :+:   */
+/*   ft_aff3d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/10 18:04:21 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/15 16:56:52 by agarcia-         ###   ########.fr       */
+/*   Created: 2017/02/15 16:53:24 by agarcia-          #+#    #+#             */
+/*   Updated: 2017/02/15 17:02:25 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-void	ft_print3d(int dim_l, int dim_c, char ***tab, int nbtetra)
+void	ft_aff3d(char ***t, int n)
 {
-	int		i;
-	int		j;
-	int		k;
+	int i;
+	int j;
 
 	i = 0;
-	//dim_l = 0;
-	//dim_c = 0;
-	while (i < nbtetra)
+	while (i < n)
 	{
 		j = 0;
-		while (j < dim_l)
-		//while (j < 16)
+		while (j < 4)
 		{
-			k = 0;
-			while (k < dim_c)
-			//while (k< 4)
-			{
-				ft_putchar(tab[i][j][k]);
-				k++;
-			}
-			ft_putstr("\n");
+			ft_putendl(t[i][j]);
 			j++;
 		}
+		ft_putchar('\n');
 		i++;
 	}
-	//return (NULL);
 }
