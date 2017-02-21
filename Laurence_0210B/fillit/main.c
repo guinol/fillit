@@ -68,6 +68,8 @@ int	main(int ac, char **av)
 		table = ft_tetra3d(tab, ft_nbtetra(buff));
 		//table = ft_tetra3D(ft_buff2d(buff), ft_nbtetra(buff));
 		ft_print3d(4, 4, table, ft_nbtetra(buff));
+		ft_inicarre(ft_cmax(ft_nbtetra(buff)));
+		//ft_carre(table, 0, ft_cmax(ft_nbtetra(buff)), 0);
 		//ft_aff3d(table, ft_nbtetra(buff));
 		//ft_putchar(table[0][0][3]);
 	}

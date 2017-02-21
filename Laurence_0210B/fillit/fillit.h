@@ -19,6 +19,13 @@
 # include <stdio.h>
 # include "libft.h"
 
+typedef struct s_ttr
+{
+	int nt;
+	int cm;
+	int p;
+}	t_ttr;
+
 int		ft_cntdiez(char *s);
 int		ft_error(void);
 int		ft_isformat(char *s);
@@ -37,4 +44,9 @@ int		ft_columnstoleft(char **tab, int index_l);
 char	***ft_tetra3d(char **tab, int nbtetra);
 void	ft_print3d(int dim_l, int dim_c, char ***tab, int nbtetra);
 void	ft_aff3d(char ***t, int n);
+int	ft_carre(char ***t, char **m, int pos, int c, int nt);
+char	**ft_inicarre(int n);
+void	ft_printcarre(char **m);
+int	ft_isfilled(char **c, int nb);
+
 #endif

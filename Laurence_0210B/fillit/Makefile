@@ -16,8 +16,8 @@ FUNCTIONS = ft_cntdiez.c ft_error.c ft_isformat.c ft_istetro.c \
 			ft_isvalid.c ft_usage.c ft_oknbtetra.c ft_diezletters.c \
 			ft_nbtetra.c ft_cmax.c ft_print2d.c ft_buff2d.c \
 			ft_totop.c ft_linestotop.c ft_columnstoleft.c \
-			ft_tetra3d.c ft_print3d.c ft_aff3d.c \
-			main.c
+			ft_tetra3d.c ft_print3d.c ft_aff3d.c ft_carre.c \
+			ft_printcarre.c main.c
 
 FLAGS = -Wall -Wextra -Werror
 
