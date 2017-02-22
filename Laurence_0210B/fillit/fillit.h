@@ -44,7 +44,7 @@ int		ft_columnstoleft(char **tab, int index_l);
 char	***ft_tetra3d(char **tab, int nbtetra);
 void	ft_print3d(int dim_l, int dim_c, char ***tab, int nbtetra);
 void	ft_aff3d(char ***t, int n);
-int	ft_carre(char ***t, char **m, int pos, int c, int nt);
+int	ft_carre(char ***t, char **m, int pos, int c, int nt, int actuel);
 char	**ft_inicarre(int n);
 void	ft_printcarre(char **m);
 int	ft_isfilled(char **c, int nb);

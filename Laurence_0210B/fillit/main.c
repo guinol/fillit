@@ -72,6 +72,7 @@ int	main(int ac, char **av)
 		//ft_carre(table, 0, ft_cmax(ft_nbtetra(buff)), 0);
 		//ft_aff3d(table, ft_nbtetra(buff));
 		//ft_putchar(table[0][0][3]);
+		ft_carre(table, ft_inicarre(ft_cmax(ft_nbtetra(buff))), 0, ft_cmax(ft_nbtetra(buff)), ft_nbtetra(buff), 0);
 	}
 	else
 		return (ft_error());
