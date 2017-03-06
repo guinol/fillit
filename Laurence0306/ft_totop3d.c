@@ -6,7 +6,7 @@
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/06 20:25:51 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/06 20:25:53 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/03/07 00:35:15 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,12 @@ char	***ft_totop3d(char ***t, int nbtetra)
 		}
 		k++;
 	}
+	k = 0;
+	while (t[k])/// OHLALALALA
+	{
+		ft_memdel((void **)t[k]);
+		k++;
+	}
+	t[k] = NULL;
 	return (des);
 }

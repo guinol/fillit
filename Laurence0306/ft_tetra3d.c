@@ -6,7 +6,7 @@
 /*   By: lagirard <lagirard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/10 17:39:10 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/03 18:20:10 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/03/07 00:30:12 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,13 @@ char	***ft_tetra3d(char ***table, char **tab, int nbtetra)
 				table[k][i][j] = tab[i + 4 * k][j];
 				j++;
 			}
+			table[k][i][j] = '\0';
 			i++;
 		}
+		table[k][i] = NULL;
 		k++;
 	}
+	table[k] = NULL;
+	ft_memdel((void **)tab);
 	return (table);
 }

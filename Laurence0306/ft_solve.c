@@ -6,7 +6,7 @@
 /*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 18:41:12 by agarcia-          #+#    #+#             */
-/*   Updated: 2017/03/06 22:45:12 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/03/07 00:17:26 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int		ft_solve(char ***tetris, char **solution, int a, int nt)
 	int		pos;
 	char	**tmp;
 	
-	read(0, NULL, 1);
+	read(0, NULL, 1);//
 	pos = 0;
 	tmp = NULL;
 	if (a == nt)
@@ -89,7 +89,6 @@ int		ft_solve(char ***tetris, char **solution, int a, int nt)
 			if (ft_solve(tetris, solution, a + 1, nt))
 				return (1);
 			solution = tmp;
-//			free (tmp);
 		}
 		++pos;
 	}

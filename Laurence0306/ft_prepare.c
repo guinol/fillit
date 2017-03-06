@@ -6,14 +6,14 @@
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 12:42:11 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/03 18:25:27 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/03/07 00:15:01 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int	ft_prepare(char *s)
+int		ft_prepare(char *s)
 {
 	int		cmin;
 	char	**tab;
