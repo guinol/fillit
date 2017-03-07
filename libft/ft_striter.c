@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printcarre.c                                    :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/09 16:13:13 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/07 05:24:38 by agarcia-         ###   ########.fr       */
+/*   Created: 2016/12/02 14:45:42 by agarcia-          #+#    #+#             */
+/*   Updated: 2017/03/06 21:21:38 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fillit.h"
 
-void	ft_printcarre(char **t)
+void	ft_striter(char *s, void (*f)(char *))
 {
-	int i;
-	int j;
-
-	i = 0;
-	while (t[i][0] != '3')
+	if (s && f)
 	{
-		j = 0;
-		while (t[i][j] != '3')
-		{
-			ft_putchar(t[i][j]);
-			j++;
-		}
-		ft_putstr("\n");
-		i++;
+		while (*s)
+			f(s++);
 	}
 }

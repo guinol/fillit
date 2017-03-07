@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printcarre.c                                    :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agarcia- <agarcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/09 16:13:13 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/07 05:24:38 by agarcia-         ###   ########.fr       */
+/*   Created: 2016/12/02 14:22:50 by agarcia-          #+#    #+#             */
+/*   Updated: 2016/12/19 19:10:04 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fillit.h"
 
-void	ft_printcarre(char **t)
+char	*ft_strnew(size_t size)
 {
-	int i;
-	int j;
+	char *s;
 
-	i = 0;
-	while (t[i][0] != '3')
-	{
-		j = 0;
-		while (t[i][j] != '3')
-		{
-			ft_putchar(t[i][j]);
-			j++;
-		}
-		ft_putstr("\n");
-		i++;
-	}
+	s = (char*)malloc(sizeof(char) * size + 1);
+	if (!s)
+		return (NULL);
+	ft_memset(s, 0, size + 1);
+	return (s);
 }

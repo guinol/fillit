@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isformat.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agarcia- <agarcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 17:04:02 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/03 16:23:55 by lagirard         ###   ########.fr       */
+/*   Created: 2016/12/20 11:12:21 by agarcia-          #+#    #+#             */
+/*   Updated: 2016/12/20 11:13:44 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fillit.h"
 
-int		ft_isformat(char *s)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		k;
-	int		x;
+	int num;
 
-	x = 0;
-	while (*s)
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else
 	{
-		k = 0;
-		while (*s != '\n')
+		if (n < 0)
 		{
-			s++;
-			k++;
+			ft_putchar_fd('-', fd);
+			n = n * -1;
 		}
-		if (k != 4)
-			return (0);
-		x++;
-		if (*(s + 1) == '\0' || *(s + 1) == '\n')
+		num = n;
+		while (num > 9)
 		{
-			if (x != 4)
-				return (0);
-			s++;
-			x = 0;
+			ft_putnbr_fd(n / 10, fd);
+			num = num % 10;
 		}
-		s++;
+		ft_putchar_fd(num + '0', fd);
 	}
-	return (1);
 }

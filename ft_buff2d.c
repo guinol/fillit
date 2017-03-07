@@ -6,7 +6,7 @@
 /*   By: lagirard <lagirard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/09 16:15:20 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/15 18:57:32 by agarcia-         ###   ########.fr       */
+/*   Updated: 2017/03/07 00:36:21 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,33 +15,29 @@
 
 char	**ft_buff2d(char *buff)
 {
-	char	**tetra;
+	char	**tet;
 	int		j;
 	int		k;
-	int		t;
-	int		size_buff;
+	int		l;
 
-	size_buff = ft_nbtetra(buff) * 4;
-	tetra = (char **)malloc(sizeof(char *) * size_buff);
-	if (tetra == NULL)
+	if (!(tet = (char **)malloc(sizeof(char *) * (ft_nbtetra(buff) * 5))))
 		return (NULL);
-	t = 0;
+	l = 0;
 	j = 0;
-	while (j < size_buff)
+	while (j < (ft_nbtetra(buff) * 4))
 	{
-		k = 0;
-		tetra[j] = (char *)malloc(sizeof(char) * 4);
-		if (tetra[k] == NULL)
+		if ((tet[j] = (char *)malloc(sizeof(char) * 5)) == NULL)
 			return (NULL);
+		k = 0;
 		while (k < 4)
 		{
-			while (buff[t] == '\n')
-				t++;
-			tetra[j][k] = buff[t];
-			t++;
+			while (buff[l] == '\n')
+				l++;
+			tet[j][k] = buff[l];
+			l++;
 			k++;
 		}
 		j++;
 	}
-	return (tetra);
+	return (tet);
 }

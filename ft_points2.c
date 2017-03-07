@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isformat.c                                      :+:      :+:    :+:   */
+/*   ft_points2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lagirard <lagirard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 17:04:02 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/03 16:23:55 by lagirard         ###   ########.fr       */
+/*   Created: 2017/02/10 17:39:10 by lagirard          #+#    #+#             */
+/*   Updated: 2017/03/06 20:23:24 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int		ft_isformat(char *s)
+char	***ft_points2(int i, int j, int k, char ***des)
 {
-	int		k;
-	int		x;
-
-	x = 0;
-	while (*s)
+	while (i < 4)
 	{
-		k = 0;
-		while (*s != '\n')
+		j = 0;
+		while (j < 4)
 		{
-			s++;
-			k++;
+			des[k][i][j] = '.';
+			j++;
 		}
-		if (k != 4)
-			return (0);
-		x++;
-		if (*(s + 1) == '\0' || *(s + 1) == '\n')
-		{
-			if (x != 4)
-				return (0);
-			s++;
-			x = 0;
-		}
-		s++;
+		i++;
 	}
-	return (1);
+	return (des);
 }

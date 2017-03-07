@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isformat.c                                      :+:      :+:    :+:   */
+/*   ft_totop3d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 17:04:02 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/03 16:23:55 by lagirard         ###   ########.fr       */
+/*   Created: 2017/03/06 20:25:51 by lagirard          #+#    #+#             */
+/*   Updated: 2017/03/07 00:19:43 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int		ft_isformat(char *s)
+char	***ft_totop3d(char ***t, int nbtetra)
 {
+	int		i;
+	int		j;
 	int		k;
-	int		x;
+	char	***des;
 
-	x = 0;
-	while (*s)
+	k = 0;
+	des = ft_mem3d(nbtetra);
+	while (k < nbtetra)
 	{
-		k = 0;
-		while (*s != '\n')
+		i = 0;
+		while (i < 4 - ft_ltop(t[k], 0))
 		{
-			s++;
-			k++;
+			j = 0;
+			while (j < (4 - ft_ctop(t[k], 0)))
+			{
+				des[k][i][j] = t[k][i + ft_ltop(t[k], 0)][j + ft_ctop(t[k], 0)];
+				j++;
+			}
+			des = ft_points1(i, j, k, des);
+			i++;
+			des = ft_points2(i, j, k, des);
 		}
-		if (k != 4)
-			return (0);
-		x++;
-		if (*(s + 1) == '\0' || *(s + 1) == '\n')
-		{
-			if (x != 4)
-				return (0);
-			s++;
-			x = 0;
-		}
-		s++;
+		k++;
 	}
-	return (1);
+	return (des);
 }

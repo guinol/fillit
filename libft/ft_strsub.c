@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printcarre.c                                    :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agarcia- <agarcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/09 16:13:13 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/07 05:24:38 by agarcia-         ###   ########.fr       */
+/*   Created: 2016/12/06 12:43:41 by agarcia-          #+#    #+#             */
+/*   Updated: 2017/01/12 15:22:23 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fillit.h"
 
-void	ft_printcarre(char **t)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int i;
-	int j;
+	char *r;
 
-	i = 0;
-	while (t[i][0] != '3')
+	if (s)
 	{
-		j = 0;
-		while (t[i][j] != '3')
-		{
-			ft_putchar(t[i][j]);
-			j++;
-		}
-		ft_putstr("\n");
-		i++;
+		if (!(r = (char*)ft_memalloc(sizeof(char) * len + 1)))
+			return (NULL);
+		return (ft_strncpy(r, s + start, len));
 	}
+	return (0);
 }

@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printcarre.c                                    :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agarcia- <agarcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/09 16:13:13 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/07 05:24:38 by agarcia-         ###   ########.fr       */
+/*   Created: 2016/12/08 18:02:15 by agarcia-          #+#    #+#             */
+/*   Updated: 2017/01/26 16:25:30 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fillit.h"
 
-void	ft_printcarre(char **t)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int i;
-	int j;
+	size_t			i;
+	unsigned char	*str;
 
 	i = 0;
-	while (t[i][0] != '3')
+	str = (unsigned char*)s;
+	while (i < n)
 	{
-		j = 0;
-		while (t[i][j] != '3')
-		{
-			ft_putchar(t[i][j]);
-			j++;
-		}
-		ft_putstr("\n");
+		if ((unsigned char)c == (unsigned char)str[i])
+			return ((char*)str + i);
 		i++;
 	}
+	return (NULL);
 }

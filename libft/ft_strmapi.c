@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tetra3d.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <lagirard@student.42.fr>          +#+  +:+       +#+        */
+/*   By: agarcia- <agarcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/10 17:39:10 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/07 00:19:31 by agarcia-         ###   ########.fr       */
+/*   Created: 2016/12/02 15:11:50 by agarcia-          #+#    #+#             */
+/*   Updated: 2017/01/12 15:10:16 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fillit.h"
 
-char	***ft_tetra3d(char ***table, char **tab, int nbtetra)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	int		j;
-	int		k;
+	char			*ns;
+	unsigned int	i;
 
-	k = 0;
-	while (k < nbtetra)
+	if (s)
 	{
+		ns = (char*)malloc(sizeof(char) * ft_strlen(s) + 1);
+		if (ns == NULL)
+			return (NULL);
 		i = 0;
-		while (i < 4)
+		while (s[i])
 		{
-			j = 0;
-			while (j < 4)
-			{
-				table[k][i][j] = tab[i + 4 * k][j];
-				j++;
-			}
+			ns[i] = f(i, s[i]);
 			i++;
 		}
-		k++;
+		ns[i] = '\0';
+		return (ns);
 	}
-	return (table);
+	return (0);
 }

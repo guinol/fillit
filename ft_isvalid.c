@@ -6,21 +6,23 @@
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 17:04:23 by lagirard          #+#    #+#             */
-/*   Updated: 2017/02/06 21:48:45 by lagirard         ###   ########.fr       */
+/*   Updated: 2017/03/03 16:32:58 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int	ft_isvalid(char *s)
+int		ft_isvalid(char *s)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	if ((int)ft_strlen(s) == 0)
 		return (0);
 	if (s[i] == '\n')
+		return (0);
+	if (ft_isendok(s) == 0)
 		return (0);
 	while (s[i] == '\n' || s[i] == '#' || s[i] == '.')
 		i++;

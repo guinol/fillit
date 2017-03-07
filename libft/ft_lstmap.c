@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printcarre.c                                    :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/09 16:13:13 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/07 05:24:38 by agarcia-         ###   ########.fr       */
+/*   Created: 2017/01/08 20:03:49 by agarcia-          #+#    #+#             */
+/*   Updated: 2017/01/12 15:48:30 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fillit.h"
 
-void	ft_printcarre(char **t)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int i;
-	int j;
+	t_list *ret;
 
-	i = 0;
-	while (t[i][0] != '3')
+	if (lst)
 	{
-		j = 0;
-		while (t[i][j] != '3')
-		{
-			ft_putchar(t[i][j]);
-			j++;
-		}
-		ft_putstr("\n");
-		i++;
+		ret = (t_list*)malloc(sizeof(t_list));
+		if (!ret)
+			return (NULL);
+		ret = f(lst);
+		if (lst->next)
+			ret->next = ft_lstmap(lst->next, f);
+		return (ret);
 	}
+	return (0);
 }

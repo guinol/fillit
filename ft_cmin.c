@@ -6,20 +6,20 @@
 /*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 19:31:30 by agarcia-          #+#    #+#             */
-/*   Updated: 2017/03/01 22:42:39 by agarcia-         ###   ########.fr       */
+/*   Updated: 2017/03/07 05:26:01 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-char	**ft_bord(char **c,int cmin)
+char	**ft_bord(char **c, int cmin)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (ft_strcmp(c[i], "\0") != 0)
+	while (c[i])
 	{
 		j = 0;
 		while (c[i][j] != '\0')
@@ -28,16 +28,14 @@ char	**ft_bord(char **c,int cmin)
 				c[i][j] = '3';
 			j++;
 		}
-		c[i][j] = '\0';
 		i++;
 	}
-	c[i] = "\0";
 	return (c);
 }
 
 int		ft_cmin(int nt)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (i * i < nt * 4)
@@ -45,29 +43,29 @@ int		ft_cmin(int nt)
 	return (i);
 }
 
-char **ft_inisol(int cmin)
+char	**ft_inisol(int cmin)
 {
-	int i;
-	int j;
-	char **carre;
+	int		i;
+	int		j;
+	char	**carre;
 
 	i = 0;
-	if (!(carre = (char**)malloc(sizeof(char*) * (cmin + 4))))
+	if (!(carre = (char **)malloc(sizeof(char *) * (cmin + 4))))
 		return (0);
 	while (i < cmin + 3)
 	{
-		if(!(carre[i] = (char*)malloc(sizeof(char) * (cmin + 4))))
+		if (!(carre[i] = (char *)malloc(sizeof(char) * (cmin + 4))))
 			return (0);
 		j = 0;
 		while (j < cmin + 3)
 		{
-			carre[i][j] = ',';
+			carre[i][j] = '.';
 			j++;
 		}
 		carre[i][j] = '\0';
 		i++;
 	}
-	carre[i] = "\0";
+	carre[i] = NULL;
 	carre = ft_bord(carre, cmin);
 	return (carre);
 }

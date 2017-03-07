@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printcarre.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agarcia- <agarcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/09 16:13:13 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/07 05:24:38 by agarcia-         ###   ########.fr       */
+/*   Created: 2016/11/21 09:52:35 by agarcia-          #+#    #+#             */
+/*   Updated: 2017/01/26 12:36:04 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fillit.h"
 
-void	ft_printcarre(char **t)
+char	*ft_strdup(const char *src)
 {
-	int i;
-	int j;
+	size_t	i;
+	char	*s;
 
 	i = 0;
-	while (t[i][0] != '3')
+	if (!(s = (char*)malloc(sizeof(char) * ft_strlen(src) + 1)))
+		return (NULL);
+	while (src[i])
 	{
-		j = 0;
-		while (t[i][j] != '3')
-		{
-			ft_putchar(t[i][j]);
-			j++;
-		}
-		ft_putstr("\n");
+		s[i] = src[i];
 		i++;
 	}
+	s[i] = '\0';
+	return (s);
 }

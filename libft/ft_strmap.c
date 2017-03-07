@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printcarre.c                                    :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agarcia- <agarcia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/09 16:13:13 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/07 05:24:38 by agarcia-         ###   ########.fr       */
+/*   Created: 2016/12/02 15:01:16 by agarcia-          #+#    #+#             */
+/*   Updated: 2017/01/12 15:08:01 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fillit.h"
 
-void	ft_printcarre(char **t)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int i;
-	int j;
+	char	*ns;
+	int		i;
 
-	i = 0;
-	while (t[i][0] != '3')
+	if (s)
 	{
-		j = 0;
-		while (t[i][j] != '3')
+		ns = (char*)malloc(sizeof(char) * ft_strlen(s) + 1);
+		if (ns == NULL)
+			return (NULL);
+		i = 0;
+		while (s[i])
 		{
-			ft_putchar(t[i][j]);
-			j++;
+			ns[i] = f(s[i]);
+			i++;
 		}
-		ft_putstr("\n");
-		i++;
+		ns[i] = '\0';
+		return (ns);
 	}
+	return (0);
 }

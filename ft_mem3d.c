@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isformat.c                                      :+:      :+:    :+:   */
+/*   ft_mem3d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 17:04:02 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/03 16:23:55 by lagirard         ###   ########.fr       */
+/*   Created: 2017/03/03 18:15:22 by lagirard          #+#    #+#             */
+/*   Updated: 2017/03/07 00:18:33 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int		ft_isformat(char *s)
+char	***ft_mem3d(int nbtetra)
 {
+	int		i;
 	int		k;
-	int		x;
+	char	***table;
 
-	x = 0;
-	while (*s)
+	if ((table = (char ***)malloc(sizeof(char**) * (nbtetra + 1))) == NULL)
+		return (NULL);
+	k = 0;
+	while (k < nbtetra)
 	{
-		k = 0;
-		while (*s != '\n')
+		if ((table[k] = (char **)malloc(sizeof(char*) * 5)) == NULL)
+			return (NULL);
+		i = 0;
+		while (i < 4)
 		{
-			s++;
-			k++;
+			if (!(table[k][i] = (char*)malloc(sizeof(char) * 5)))
+				return (NULL);
+			i++;
 		}
-		if (k != 4)
-			return (0);
-		x++;
-		if (*(s + 1) == '\0' || *(s + 1) == '\n')
-		{
-			if (x != 4)
-				return (0);
-			s++;
-			x = 0;
-		}
-		s++;
+		table[k][i] = NULL;
+		k++;
 	}
-	return (1);
+	table[k] = NULL;
+	return (table);
 }

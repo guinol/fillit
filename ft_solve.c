@@ -6,18 +6,18 @@
 /*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/01 18:41:12 by agarcia-          #+#    #+#             */
-/*   Updated: 2017/03/01 21:53:19 by agarcia-         ###   ########.fr       */
+/*   Updated: 2017/03/07 05:25:12 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int	ft_canplace(char **t, char **c, int p)
+int		ft_canplace(char **t, char **c, int p)
 {
-	int i;
-	int j;
-	int n;
+	int		i;
+	int		j;
+	int		n;
 
 	n = ft_strlen(c[0]) - 3;
 	i = 0;
@@ -26,7 +26,7 @@ int	ft_canplace(char **t, char **c, int p)
 		j = 0;
 		while (j < 4)
 		{
-			if (ft_isalpha(t[i][j]) && c[p / n + i][p % n + j] != ',')
+			if (ft_isalpha(t[i][j]) && c[p / n + i][p % n + j] != '.')
 				return (0);
 			j++;
 		}
@@ -35,11 +35,11 @@ int	ft_canplace(char **t, char **c, int p)
 	return (1);
 }
 
-char **ft_place(char **t, char **c, int p)
+char	**ft_place(char **t, char **c, int p)
 {
-	int i;
-	int j;
-	int n;
+	int		i;
+	int		j;
+	int		n;
 
 	n = ft_strlen(c[0]) - 3;
 	i = 0;
@@ -57,9 +57,9 @@ char **ft_place(char **t, char **c, int p)
 	return (c);
 }
 
-int	ft_verif(char **sol, int pos)
+int		ft_verif(char **sol, int pos)
 {
-	int n;
+	int		n;
 
 	n = ft_strlen(sol[0]) - 3;
 	if (pos < n * n)
@@ -67,30 +67,31 @@ int	ft_verif(char **sol, int pos)
 	return (0);
 }
 
-int	ft_solve(char ***tetris, char **solution, int a, int nt)
+int		ft_solve(char ***tetris, char **solution, int a, int nt)
 {
-	int pos;
-	char **tmp;
+	int		pos;
+	char	**tmp;
 
-	pos = 0;
+	pos = -1;
 	tmp = NULL;
 	if (a == nt)
 	{
 		ft_printcarre(solution);
 		return (1);
 	}
-	while (ft_verif(solution, pos))
+	while (ft_verif(solution, ++pos))
 	{
 		if (ft_canplace(tetris[a], solution, pos))
 		{
 			tmp = ft_doubledup(solution);
-			solution = ft_place(tetris[a], solution, pos);
-			if (ft_solve(tetris, solution, a + 1, nt))
+			tmp = ft_place(tetris[a], tmp, pos);
+			if (ft_solve(tetris, tmp, a + 1, nt))
+			{
+				ft_free2d(tmp);
 				return (1);
-			solution = ft_doubledup(tmp);
-			tmp = NULL;
+			}
+			ft_free2d(tmp);
 		}
-		++pos;
 	}
 	return (0);
 }

@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isformat.c                                      :+:      :+:    :+:   */
+/*   ft_mem2d.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 17:04:02 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/03 16:23:55 by lagirard         ###   ########.fr       */
+/*   Created: 2017/03/03 18:15:22 by lagirard          #+#    #+#             */
+/*   Updated: 2017/03/07 00:29:41 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int		ft_isformat(char *s)
+char	**ft_mem2d(int nbtetra)
 {
-	int		k;
-	int		x;
+	int		j;
+	char	**dest;
 
-	x = 0;
-	while (*s)
-	{
-		k = 0;
-		while (*s != '\n')
-		{
-			s++;
-			k++;
-		}
-		if (k != 4)
-			return (0);
-		x++;
-		if (*(s + 1) == '\0' || *(s + 1) == '\n')
-		{
-			if (x != 4)
-				return (0);
-			s++;
-			x = 0;
-		}
-		s++;
-	}
-	return (1);
+	dest = (char **)malloc(sizeof(char *) * (nbtetra * 5));
+	j = 0;
+	while (j < (nbtetra * 4))
+		dest[j++] = (char *)malloc(sizeof(char) * 4);
+	dest[j] = NULL;
+	return (dest);
 }

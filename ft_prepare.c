@@ -1,24 +1,76 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_prepare.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/03/03 12:42:11 by lagirard          #+#    #+#             */
+/*   Updated: 2017/03/07 05:23:47 by agarcia-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "fillit.h"
 
-int	ft_prepare(char *s)
+void	ft_free2d(char **tab)
 {
-	int cmin;
-	int size_buff;
+	int i;
+
+	i = -1;
+	while (tab[++i])
+		free(tab[i]);
+	free(tab);
+}
+
+void	ft_free3d(char ***tab)
+{
+	int i;
+	int j;
+
+	i = -1;
+	while (tab[++i])
+	{
+		j = -1;
+		while (tab[i][++j])
+			free(tab[i][j]);
+		free(tab[i]);
+	}
+	free(tab);
+}
+
+void	ft_doublefree2d(char **t1, char **t2)
+{
+	ft_free2d(t1);
+	ft_free2d(t2);
+}
+
+void	ft_doublefree3d(char ***t1, char ***t2)
+{
+	ft_free3d(t1);
+	ft_free3d(t2);
+}
+
+int		ft_prepare(char *s, int nt, int cmin)
+{
 	char	**tab;
 	char	***table;
-	
-	ft_diezletters(s);
+	char	**tmp2d;
+	char	***tmp;
+
 	tab = ft_buff2d(s);
-	tab = ft_totop(tab, ft_nbtetra(s));
-	size_buff = ft_nbtetra(s) * 4;
-	table = ft_tetra3d(tab, ft_nbtetra(s));
-	cmin = ft_cmin(ft_nbtetra(s));
+	table = ft_tetra3d(ft_mem3d(nt), tab, nt);
+	tmp = table;
+	table = ft_totop3d(table, nt);
+	tmp2d = tab;
 	tab = ft_inisol(cmin);
-	while(!ft_solve(table, tab, 0, ft_nbtetra(s)))
+	while (!ft_solve(table, tab, 0, nt))
 	{
 		++cmin;
+		ft_free2d(tab);
 		tab = ft_inisol(cmin);
 	}
+	ft_doublefree2d(tab, tmp2d);
+	ft_doublefree3d(table, tmp);
 	return (0);
 }

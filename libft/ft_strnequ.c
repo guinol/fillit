@@ -1,43 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isformat.c                                      :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: agarcia- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 17:04:02 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/03 16:23:55 by lagirard         ###   ########.fr       */
+/*   Created: 2016/12/02 16:08:35 by agarcia-          #+#    #+#             */
+/*   Updated: 2017/01/16 16:34:39 by agarcia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "fillit.h"
 
-int		ft_isformat(char *s)
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int		k;
-	int		x;
-
-	x = 0;
-	while (*s)
+	if (s1 && s2)
 	{
-		k = 0;
-		while (*s != '\n')
+		while ((*s1 || *s2) && n > 0)
 		{
-			s++;
-			k++;
-		}
-		if (k != 4)
-			return (0);
-		x++;
-		if (*(s + 1) == '\0' || *(s + 1) == '\n')
-		{
-			if (x != 4)
+			if (*s1++ != *s2++)
 				return (0);
-			s++;
-			x = 0;
+			n--;
 		}
-		s++;
+		return (1);
 	}
-	return (1);
+	return (0);
 }

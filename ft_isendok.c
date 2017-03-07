@@ -1,43 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isformat.c                                      :+:      :+:    :+:   */
+/*   ft_isendok.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 17:04:02 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/03 16:23:55 by lagirard         ###   ########.fr       */
+/*   Created: 2017/03/03 16:31:04 by lagirard          #+#    #+#             */
+/*   Updated: 2017/03/03 16:33:37 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int		ft_isformat(char *s)
+int		ft_isendok(char *s)
 {
-	int		k;
-	int		x;
-
-	x = 0;
 	while (*s)
-	{
-		k = 0;
-		while (*s != '\n')
-		{
-			s++;
-			k++;
-		}
-		if (k != 4)
-			return (0);
-		x++;
-		if (*(s + 1) == '\0' || *(s + 1) == '\n')
-		{
-			if (x != 4)
-				return (0);
-			s++;
-			x = 0;
-		}
 		s++;
-	}
+	s--;
+	if (*s != '\n')
+		return (0);
 	return (1);
 }

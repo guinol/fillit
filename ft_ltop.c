@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isformat.c                                      :+:      :+:    :+:   */
+/*   ft_ltop.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lagirard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 17:04:02 by lagirard          #+#    #+#             */
-/*   Updated: 2017/03/03 16:23:55 by lagirard         ###   ########.fr       */
+/*   Created: 2017/02/09 21:49:57 by lagirard          #+#    #+#             */
+/*   Updated: 2017/03/06 20:10:11 by lagirard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "fillit.h"
-
-int		ft_isformat(char *s)
+int		ft_ltop(char **tab, int index_l)
 {
-	int		k;
-	int		x;
+	int		i;
+	int		j;
+	int		d;
 
-	x = 0;
-	while (*s)
+	i = index_l;
+	d = 0;
+	while (i < (index_l + 4))
 	{
-		k = 0;
-		while (*s != '\n')
-		{
-			s++;
-			k++;
-		}
-		if (k != 4)
-			return (0);
-		x++;
-		if (*(s + 1) == '\0' || *(s + 1) == '\n')
-		{
-			if (x != 4)
-				return (0);
-			s++;
-			x = 0;
-		}
-		s++;
+		j = 0;
+		while (j < 4 && tab[i][j] == '.')
+			j++;
+		if (j == 4)
+			d++;
+		else
+			return (d);
+		i++;
 	}
-	return (1);
+	return (d);
 }
